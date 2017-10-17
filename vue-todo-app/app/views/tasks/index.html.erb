@@ -1,0 +1,12 @@
+<div id="app">
+  <ul>
+    <li id="task" v-on:click="removeTask()" v-for="task in tasks" >
+      <h2>Task: {{ task.name }}</h2>
+      <h4>Priority: {{ task.priority }}</h4>
+    </li>
+  </ul>
+  <h4>Add a Task</h4>
+  <input v-model="newTask">
+  <input v-model="newPriority">
+  <button v-on:click="addTask()">Add Task</button>
+</div>
