@@ -5,15 +5,18 @@ document.addEventListener("DOMContentLoaded", function(event) {
       tasks: [
               {
                 name: "Walk the dog",
-                priority: "High"
+                priority: "9",
+                completed: false
               },
               {
                 name: "Groceries",
-                priority: "Medium"
+                priority: "7",
+                completed: false
               },
               {
                 name: "Sleep",
-                priority: "Very High"
+                priority: "1",
+                completed: false
               }
             ],
       newTask: "",
@@ -29,7 +32,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
         if(this.newTask && this.newPriority){
            newTask = {
                        name: this.newTask,
-                       priority: this.newPriority
+                       priority: this.newPriority,
+                       completed: false
                      }
           console.log(newTask)
           this.tasks.push(newTask)
@@ -37,9 +41,24 @@ document.addEventListener("DOMContentLoaded", function(event) {
           this.newPriority = "";
         }
       },
-      removeTask: function(inputTask) {
-        var index = this.tasks.indexOf(inputTask);
-        this.tasks.splice(index, 1)
+      removeTasks: function(tasks) {
+        for(task in tasks) {
+          if(tasks[task].completed === true) {
+            this.tasks.splice(task, 1)
+          }
+        }
+      },
+      toggleCompleted: function(inputTask) {
+        inputTask.completed = !inputTask.completed;
+      },
+      countIncompleted: function(tasks) {
+        var count = 0;
+        for(var task of tasks) {
+          if(!task.completed) {
+            count++;
+          }
+        }
+        return count;
       }
     },
   });

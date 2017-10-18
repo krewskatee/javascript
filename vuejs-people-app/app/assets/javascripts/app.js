@@ -34,11 +34,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         this.people.splice(index, 1)
       },
       bioToggle: function(inputPerson) {
-        if (inputPerson.bioVisible){
-          inputPerson.bioVisible = false
-        } else{
-          inputPerson.bioVisible = true
-        }
+        !input.bioVisible
       }
     },
     computed: {
