@@ -2,6 +2,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
   var app = new Vue({
     el: '#app',
     data: {
+      message: 'Hello Vue!',
+
       tasks: [
               {
                 name: "Walk the dog",
@@ -42,8 +44,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
         }
       },
       removeTasks: function(tasks) {
-        for(task in tasks) {
-          if(tasks[task].completed === true) {
+        for(var task of tasks) {
+          if(task.completed === true) {
             this.tasks.splice(task, 1)
           }
         }

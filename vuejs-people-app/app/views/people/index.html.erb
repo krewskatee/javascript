@@ -1,5 +1,10 @@
 <div id="app">
   <ul>
+    <li v-for="error in errors">
+      {{ error }}
+    </li>
+  </ul>
+  <ul>
     <li id="person" v-for="person in people">
       <h2 v-on:click="bioToggle(person)">{{ person.name }}</h2>
       <div v-if="person.bioVisible === true">
